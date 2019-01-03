@@ -163,10 +163,16 @@
                 <div class="menu">
                     <ul class="list">
                         <li class="header">MAIN NAVIGATION</li>
-                        <li class="active">
+                        <li>
                             <a href="index.html">
                                 <i class="material-icons">home</i>
                                 <span>Home</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'projects:project-list' %}">
+                                <i class="material-icons">home</i>
+                                <span>项目列表</span>
                             </a>
                         </li>
                         <li>
@@ -233,6 +239,7 @@
             <!-- #END# Left Sidebar -->
         </section>
 
+        {% block content %}
         <section class="content">
             <div class="container-fluid">
                 <div class="block-header">
@@ -240,6 +247,7 @@
                 </div>
             </div>
         </section>
+        {% endblock %}
 
         {% include "base/_js.html" %}
     </body>
