@@ -6,3 +6,7 @@ from django.views.generic import ListView, TemplateView
 
 class ProjectListView(TemplateView):
     template_name = 'project/list.html'
+
+
+class ProjectCreateView(TemplateView):
+    template_name = 'project/create.html'
