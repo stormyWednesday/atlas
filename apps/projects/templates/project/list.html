@@ -4,7 +4,7 @@
     <section class="content">
         <div class="container-fluid">
             <div class="block-header">
-                <h2>项目列表</h2>
+                <h2>模块列表</h2>
             </div>
 
             <!-- Striped Rows -->
@@ -13,7 +13,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                项目列表
+                                模块列表
                             </h2>
                             <ul class="header-dropdown m-r--5">
                                 <li class="dropdown">
@@ -21,9 +21,7 @@
                                         <i class="material-icons">more_vert</i>
                                     </a>
                                     <ul class="dropdown-menu pull-right">
-                                        <li><a href="{% url 'projects:project-create' %}">添加</a></li>
-                                        <li><a href="javascript:void(0);">修改</a></li>
-                                        <li><a href="javascript:void(0);">删除</a></li>
+                                        <li><a href="{% url 'projects:project-create' %}">添加</a></li>                                                                                                								
                                     </ul>
                                 </li>
                             </ul>
@@ -35,21 +33,25 @@
                                         <th>模块名</th>
                                         <th>描述</th>
                                         <th>端口</th>
-                                        <th>包名</th>
                                         <th>负责人</th>
+                                        <th>包名</th>
                                         <th>项目名</th>
+										<th>操作</th>
                                     </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
+                                </thead>								      
+                                <tbody>	
+                                        {% for project in project_obj %}
+                                    <tr>									    
+                                        <td>{{project.name}}</a></td>
+                                        <td>{{project.description}}</td>
+                                        <td>{{project.port}}</td>
+                                        <td>{{project.charger}}</td>
+                                        <td>{{project.package_name}}</td>
+                                        <td>{{project.project_name}}</td>
+										<td><a href="{% url 'projects:project-update' pk=project.id %}">编辑</a>  <a href="{% url 'projects:project-delete' pk=project.id %}">删除</a></td>
                                     </tr>
-                                </tbody>
+                                         {% endfor %}									
+                                </tbody>								    
                             </table>
                         </div>
                     </div>

@@ -1,0 +1,4 @@
+<form method="post">{% csrf_token %}
+    <p>确定要删除 "{{ object.project_name }}项目的{{ object.name }}应用"?</p>
+    <input type="submit" value="确定">
+</form>
